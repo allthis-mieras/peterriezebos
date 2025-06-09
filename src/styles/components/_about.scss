@@ -28,6 +28,7 @@
         height: calc(100vh - 2 * var(--site-margin));
         border-radius: var(--panel-radius);
         overflow: hidden;
+        text-align: center;
 
 
         &::before,
