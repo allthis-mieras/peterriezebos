@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
+let hasScrolledToVideo = false;
+
 export function initHero() {
   // Split text animation
   let split = SplitText.create(".hero__heading", { type: "chars" });
@@ -55,6 +57,49 @@ export function initHero() {
 
   // Fit text to container
   fitText(".hero__heading", 1.5);
+
+  const hero = document.querySelector('.hero');
+  const video = hero.querySelector('.hero__video');
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const aboutSection = document.querySelector('#about');
+
+  // Video scroll progress
+  gsap.to(video, {
+    opacity: 1,
+    scale: 1,
+    scrollTrigger: {
+      trigger: hero,
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+      onEnter: () => {
+        hasScrolledToVideo = true;
+      },
+      onLeaveBack: () => {
+        hasScrolledToVideo = false;
+      }
+    }
+  });
+
+  // Scroll indicator click handler
+  scrollIndicator.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    if (!hasScrolledToVideo) {
+      // Scroll naar video positie
+      window.scrollTo({
+        top: window.innerHeight * 1,
+        behavior: 'smooth'
+      });
+      // Update state na scroll
+      setTimeout(() => {
+        hasScrolledToVideo = true;
+      }, 1000); // Wacht tot scroll klaar is
+    } else {
+      // Scroll naar about sectie
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 }
 
 // Helper function to fit text to container

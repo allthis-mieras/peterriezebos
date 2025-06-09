@@ -19,14 +19,41 @@
         top: var(--site-margin);
         align-self: start;
         background: red;
-        color: white;
-        padding: var(--space-l);
+        color: var(--neutral-950);
+        padding: var(--space-2xl-3xl);
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         height: calc(100vh - 2 * var(--site-margin));
         border-radius: var(--panel-radius);
+        overflow: hidden;
+
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            // z-index: 2;
+        }
+
+        &::before {
+            background-image: url('../media/fx-noise.gif');
+            background-repeat: repeat;
+            background-size: 25%;
+            mix-blend-mode: multiply;
+            opacity: 0.2;
+        }
+
+        &::after {
+            background-image: url('../media/pr-textures-paper.jpg');
+            background-size: cover;
+            background-position: center;
+            mix-blend-mode: multiply;
+            opacity: 0.5;
+        }
 
         @media (max-width: 768px) {
             position: static;
