@@ -1,0 +1,189 @@
+.contact {
+    position: relative;
+    min-height: 100vh;
+    padding: var(--space-xl) 0;
+    overflow: hidden;
+    background-color: var(--color-white);
+
+    &__container {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+        padding: 0 var(--space-xl);
+    }
+
+    &__column {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-l);
+
+        &--left {
+            transform: translateY(calc(var(--scroll) * 0.5));
+        }
+
+        &--center {
+            transform: translateY(calc(var(--scroll) * 0.3));
+        }
+
+        &--right {
+            transform: translateY(calc(var(--scroll) * 0.7));
+        }
+    }
+
+    &__title {
+        font-size: var(--step-3);
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    &__text {
+        font-size: var(--step-0);
+        line-height: 1.5;
+        color: var(--color-gray);
+    }
+
+    &__link {
+        font-size: var(--step-1);
+        color: var(--color-black);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--color-gray);
+        }
+    }
+
+    &__image {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3/4;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__social {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-s);
+    }
+
+    &__social-link {
+        font-size: var(--step-1);
+        color: var(--color-black);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--color-gray);
+        }
+    }
+}
+
+.contact--grid {
+    width: 100%;
+    padding: var(--space-xl) 0;
+    background: var(--color-white);
+}
+
+.contact__container {
+    display: grid;
+    grid-template-columns: [full-start] minmax(var(--site-margin), 1fr) [main-start] repeat(12, 1fr) [main-end] minmax(var(--site-margin), 1fr) [full-end];
+    grid-gap: var(--grid-gutter, 2rem);
+    align-items: start;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+}
+
+.contact__item {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact__item--inquiries {
+    grid-column: main-start 1 / main-start 3;
+}
+
+.contact__item--press {
+    grid-column: main-start 3 / main-start 5;
+    margin-top: 18vw;
+}
+
+.contact__item--collabs {
+    grid-column: main-start 9 / main-start 11;
+}
+
+.contact__title {
+    font-size: var(--fs-2);
+
+    font-family: var(--font-heading, sans-serif);
+    font-weight: 800;
+    margin-bottom: var(--space-2xs);
+}
+
+.contact__intro {
+    font-size: var(--fs--2);
+
+    font-family: var(--font-mono, monospace);
+    margin-bottom: var(--space-m);
+    max-width: 32ch;
+}
+
+.contact__link {
+    font-size: var(--fs--1);
+    color: var(--color-black);
+    text-decoration: none;
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+    transition: color 0.2s;
+
+    &:hover {
+        color: var(--color-gray);
+    }
+}
+
+@media (max-width: 1024px) {
+    .contact__container {
+        grid-template-columns: [full-start] minmax(var(--site-margin), 1fr) [main-start] repeat(3, 1fr) [main-end] minmax(var(--site-margin), 1fr) [full-end];
+    }
+
+    .contact__item--inquiries {
+        grid-column: main-start 1 / main-start 2;
+        margin-top: 0;
+    }
+
+    .contact__item--press {
+        grid-column: main-start 2 / main-start 3;
+        margin-top: 0;
+    }
+
+    .contact__item--collabs {
+        grid-column: main-start 3 / main-start 4;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact__container {
+        grid-template-columns: [full-start] minmax(var(--site-margin), 1fr) [main-start] 1fr [main-end] minmax(var(--site-margin), 1fr) [full-end];
+    }
+
+    .contact__item--inquiries,
+    .contact__item--press,
+    .contact__item--collabs {
+        grid-column: main-start 1 / main-end;
+        margin-top: 0;
+    }
+}
