@@ -10,6 +10,12 @@ export function initProjects() {
     const overlay = project.querySelector(".project__overlay");
     const title = project.querySelector(".project__title");
     const slideCount = slides.children.length;
+    const bgColor = project.dataset.bg;
+
+    // Set initial background color from data-bg
+    if (bgColor) {
+      sticky.style.backgroundColor = bgColor;
+    }
 
     function getScrollLength() {
       return (slideCount + 1) * sticky.getBoundingClientRect().width;
@@ -29,34 +35,51 @@ export function initProjects() {
       }
     });
 
-    // Overlay + title fade out
-    gsap.to([overlay, title], {
+    // Title fade out (sneller)
+    gsap.to(title, {
       autoAlpha: 0.2,
+      duration: 0.5,
+      delay: 0.1,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: project,
         start: "top top",
-        end: () => `+=${sticky.getBoundingClientRect().width}`,
-        scrub: true,
-        invalidateOnRefresh: true
+        end: "top top",
+        toggleActions: "play none none reverse"
       }
     });
 
-    // Sticky background fade
+    // Overlay fade out
+    gsap.to(overlay, {
+      autoAlpha: 0.2,
+      duration: 0.75,
+      delay: 0.2,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: project,
+        start: "top top",
+        end: "top top",
+        toggleActions: "play none none reverse"
+      }
+    });
+
+    // Sticky background fade direct
     gsap.to(sticky, {
       backgroundColor: "var(--projects-panel)",
-      duration: 1,
-      ease: "power3.out",
+      duration: 0.75,
+      delay: 0.3,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: project,
         start: "top top",
-        end: () => `+=${sticky.getBoundingClientRect().width}`,
-        invalidateOnRefresh: true
+        end: "top top",
+        toggleActions: "play none none reverse"
       }
     });
-  });
 
-  // Refresh ScrollTrigger on resize
-  window.addEventListener("resize", () => {
-    ScrollTrigger.refresh();
+    // Refresh ScrollTrigger on window resize
+    window.addEventListener("resize", () => {
+      ScrollTrigger.refresh();
+    });
   });
 } 

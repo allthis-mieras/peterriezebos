@@ -40,6 +40,10 @@
 .project {
     position: relative;
     margin-bottom: var(--space-l);
+
+    &__title {
+        color: oklch(from var(--bw-black) l c h / 0.9);
+    }
 }
 
 .project__sticky {
@@ -51,6 +55,31 @@
     z-index: 1;
     transition: background-color 0.3s;
     overflow: hidden;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    &::before {
+        background-image: url('../media/fx-noise.gif');
+        background-repeat: repeat;
+        background-size: 25%;
+        mix-blend-mode: multiply;
+        opacity: 0.2;
+    }
+
+    &::after {
+        background-image: url('../media/pr-textures-paper.jpg');
+        background-size: cover;
+        background-position: center;
+        mix-blend-mode: multiply;
+        opacity: 0.5;
+    }
 }
 
 .project__center {
@@ -58,6 +87,7 @@
     place-items: center;
     height: 100%;
     position: relative;
+    z-index: 1;
 }
 
 .project__title {
@@ -65,15 +95,16 @@
     font-size: 12vw;
     font-weight: 900;
     text-transform: uppercase;
-    z-index: 4;
-    color: #000;
+    z-index: 1;
+    color: oklch(from var(--bw-black) l c h / calc(alpha - 0.1));
+    mix-blend-mode: multiply;
 }
 
 .project__overlay {
     position: absolute;
     width: 50%;
     height: auto;
-    z-index: 5;
+    z-index: 1;
 }
 
 .project__slides {
