@@ -1,0 +1,53 @@
+.hero {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    &__bg {
+        position: absolute;
+        inset: 0;
+        background: var(--bw-white);
+        z-index: 0;
+    }
+
+    &__heading {
+        font-family: var(--font-heading);
+        font-size: 2rem; // fallback
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -0.0125em;
+        position: relative;
+        z-index: 3;
+        color: white;
+        mix-blend-mode: difference; // startwaarde
+        transition: all 0.3s ease;
+    }
+
+    &__type {
+        position: absolute;
+        min-width: 50%;
+        max-width: 60%;
+        z-index: 5;
+    }
+
+    &__portrait {
+        position: absolute;
+        max-width: 30%;
+        z-index: 1;
+
+        @media (max-width: 768px) {
+            max-width: 80%;
+        }
+    }
+
+    &__video {
+        position: absolute;
+        width: 83.333%; // 10 cols
+        aspect-ratio: 16 / 9;
+        z-index: 2;
+        max-height: 80vh;
+    }
+}

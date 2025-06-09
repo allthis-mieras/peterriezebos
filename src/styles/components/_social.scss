@@ -1,0 +1,28 @@
+.social {
+    --marquee-duration: 30s;
+
+    padding: var(--site-margin);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .marquee-wrapper {
+        background-color: var(--bw-black);
+        border-radius: var(--panel-radius);
+        padding: var(--space-l);
+        width: 100%;
+        height: calc(100vh - 2 * var(--site-margin));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__link {
+        font-size: var(--fs-9);
+        letter-spacing: -0.025ch;
+        line-height: 100%;
+        color: var(--bw-white);
+        text-decoration: none;
+    }
+}

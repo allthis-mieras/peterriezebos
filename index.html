@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Riezebos - Artist</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ghj8hze.css">
+
+    <link rel="stylesheet" href="/src/styles/main.scss">
+    
+</head>
+<body>
+    <main>
+        <!-- Hero -->
+        <header class="hero">
+            <h1 class="hero__heading">Riezebos</h1>
+            <img class="hero__type" src="./src/media/pr-type-project-amor.png" alt="Amor" />
+            <img class="hero__portrait" src="./src/media/pr-cover-image.jpg" alt="Peter Riezebos" />
+            <video class="hero__video" playsinline autoplay muted loop>
+                <source src="./src/media/pr-teaser-dummy.mp4" type="video/mp4" />
+            </video>
+            <div class="hero__bg"></div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="about__grid">
+                <!-- Intro blok -->
+                <div class="about__intro">
+                    <h2 class="about__title">The only way is all in.</h2>
+                    <p class="about__description">
+                        That's the process of artist Peter Riezebos. Curiosity consumes him as he dives in worlds big and small to make sense of them - video games, wine, wrestling, everything everywhere from Amsterdam to Shanghai.
+                    </p>
+                    <div class="about__signature">
+                        <svg width="140" height="61" aria-hidden="true">
+                            <use href="#signature" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Moments blok -->
+                <div class="about__moments">
+                    <div class="moment">
+                        <div class="moment__media-wrapper">
+                            <img src="https://placehold.co/1200x800" alt="Artwork 1" class="moment__media" />
+                        </div>
+                        <div class="moment__meta">
+                            <span class="moment__year">2024</span>
+                            <div class="moment__text">
+                                <h3 class="moment__title">Key Moment</h3>
+                                <p class="moment__description">
+                                    Lorem ipsum dolor sit amet consectetur adipiscing elit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="moment">
+                        <div class="moment__media-wrapper">
+                            <img src="https://placehold.co/1200x800" alt="Artwork 2" class="moment__media" />
+                        </div>
+                        <div class="moment__meta">
+                            <span class="moment__year">2022</span>
+                            <div class="moment__text">
+                                <h3 class="moment__title">Experiment</h3>
+                                <p class="moment__description">
+                                    Egestas adipiscing aenean in tellus pretium tempus amet eget sit. Elit mattis tellus vel tellus vestibulum mauris amet pellentesque.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="moment">
+                        <div class="moment__media-wrapper">
+                            <img src="https://placehold.co/1200x800" alt="Artwork 3" class="moment__media" />
+                        </div>
+                        <div class="moment__meta">
+                            <span class="moment__year">2020</span>
+                            <div class="moment__text">
+                                <h3 class="moment__title">Early Days</h3>
+                                <p class="moment__description">
+                                    Phasellus varius nulla vel turpis consectetur fermentum.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects">
+            <nav class="projects__menu">
+                <ul>
+                    <li><a href="#project1" data-target="project1">Amor</a></li>
+                    <li><a href="#project2" data-target="project2">Matrix</a></li>
+                    <li><a href="#project3" data-target="project3">Amicitia</a></li>
+                </ul>
+            </nav>
+
+            <!-- Project 1 -->
+            <article id="project1 project-amor" class="project" data-bg="#ff0000">
+                <div class="project__sticky" style="background-color: var(--bg-color)">
+                    <div class="project__center">
+                        <h1 class="project__title">Riezebos</h1>
+                        <img class="project__overlay" src="./src/media/pr-type-project-amor.png" alt="Amor" />
+                    </div>
+
+                    <div class="project__slides">
+                        <div class="slide slide--image">
+                            <img src="https://placehold.co/1200x800/00ff00/FFFFFF?text=Slide+1" />
+                        </div>
+                        <div class="slide slide--fullscreen">
+                            <video src="./src/media/pr-teaser-dummy.mp4" autoplay muted loop playsinline class="moment__media"></video>
+                        </div>
+                        <div class="slide slide--quote">
+                            <img src="https://placehold.co/1600x900/333/222?text=Fullscreen" />
+                            <div class="quote">
+                                <p>"The only way is all in."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article id="project2 project-matrix" class="project" data-bg="#00ff00">
+                <div class="project__sticky" style="background-color: var(--bg-color)">
+                    <div class="project__center">
+                        <h1 class="project__title">RIEZEBOS</h1>
+                        <img class="project__overlay" src="https://isisngold.com/cdn/shop/files/isis-gold-or-jaune-yellow-gold-amor-full-word-tooth-gems-35662138245274.png?v=1683218338" alt="Overlay" />
+                    </div>
+
+                    <div class="project__slides">
+                        <div class="slide slide--image">
+                            <img src="https://placehold.co/1200x800/FF0000/FFFFFF?text=Slide+1" />
+                        </div>
+                        <div class="slide slide--fullscreen">
+                            <img src="https://placehold.co/1600x900/666666/FFFFFF?text=Fullscreen" />
+                        </div>
+                        <div class="slide slide--quote">
+                            <img src="https://placehold.co/1600x900/333/222?text=Fullscreen" />
+                            <div class="quote">
+                                <p>"The only way is all in."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="social">
+            <div class="marquee-wrapper">
+                <div class="marquee">
+                    <ul class="social-links marquee__content">
+                        <li><a href="#" class="social__link">Instagram</a></li>
+                        <li><a href="#" class="social__link">Tiktok</a></li>
+                        <li><a href="#" class="social__link">Facebook</a></li>
+                        <li><a href="#" class="social__link">Linkedin</a></li>
+                        <li><a href="#" class="social__link">Youtube</a></li>
+                        <li><a href="#" class="social__link">Twitch</a></li>
+                    </ul>
+                    <ul class="marquee__content" aria-hidden="true">
+                        <li><a href="#" class="social__link">Instagram</a></li>
+                        <li><a href="#" class="social__link">Tiktok</a></li>
+                        <li><a href="#" class="social__link">Facebook</a></li>
+                        <li><a href="#" class="social__link">Linkedin</a></li>
+                        <li><a href="#" class="social__link">Youtube</a></li>
+                        <li><a href="#" class="social__link">Twitch</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <svg style="display: none;">
+        <symbol id="signature" viewBox="0 0 140 61" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M65.2883 0.618518C63.3731 0.885912 61.5069 1.37803 57.964 2.54991C49.1133 5.47743 39.3462 11.1346 30.5408 18.4335C21.2095 26.1683 11.2622 38.4418 4.2492 50.8733C1.0881 56.4769 0.0072464 59.0105 0.405021 59.8837C0.629965 60.3773 0.859031 60.5 1.55689 60.5C2.30542 60.5 2.79748 60.1839 5.0479 58.2575C8.34014 55.4394 21.7612 43.3671 29.3914 36.3608C32.575 33.4374 37.0473 29.4231 39.3297 27.4406C43.951 23.4258 51.0957 17.0961 52.145 16.0869C52.6897 15.563 52.7956 15.2954 52.6722 14.7535C52.5025 14.0071 51.7453 13.2272 51.1904 13.2272C50.822 13.2272 50.2868 13.7511 48.4678 15.8925C47.8786 16.5863 45.6834 18.6432 43.5901 20.4634C41.4965 22.2835 37.1246 26.1805 33.8748 29.1232C24.7393 37.3955 11.423 49.3972 4.47196 55.6229C3.76368 56.2575 3.76368 56.2575 4.37573 55.1666C4.71242 54.5666 5.4098 53.3121 5.92514 52.3788C10.6163 43.8835 17.215 35.0539 24.3141 27.7727C26.5893 25.4394 29.1725 22.9303 30.0551 22.1969C30.9374 21.4636 32.2463 20.3446 32.9638 19.7102C34.8407 18.0503 39.9112 14.3611 42.8733 12.5C51.1611 7.2927 62.0937 2.99137 67.1647 2.94215C70.1311 2.91355 70.4525 3.73852 68.5934 6.60931C67.1256 8.87573 63.6981 12.1055 56.6395 17.874C48.343 24.6544 44.7119 27.6874 41.1765 30.7909C39.6433 32.1368 37.789 33.7245 37.0558 34.3189C31.3907 38.9116 22.3267 46.8442 20.7545 48.5855C19.1976 50.3099 19.7641 52.0151 21.8938 52.0151C22.9916 52.0151 24.1059 51.5868 29.7838 48.9824C38.2096 45.1174 50.5978 41.7812 57.7807 41.4425C60.4471 41.3169 60.4471 41.3169 59.7199 41.9368C59.32 42.2777 57.1995 43.5121 55.0077 44.6799C50.4143 47.1271 49.418 47.9223 49.418 49.1414C49.418 51.7167 51.9273 52.2738 59.1243 51.2971C65.8436 50.3851 72.9184 49.8166 76.6727 49.8869C80.2934 49.9545 80.2934 49.9545 80.4936 50.7281C80.7462 51.7041 81.6532 52.3458 83.3459 52.7455C85.3447 53.2175 96.2945 52.7708 112.926 51.5383C120.906 50.947 136.854 50.6188 137.622 51.0302C138.059 51.2641 138.332 51.2653 138.885 51.0362C139.487 50.7868 139.59 50.6108 139.59 49.8306C139.59 49.3126 139.406 48.7014 139.166 48.4183C138.748 47.9262 138.647 47.9223 132.197 48.1489C124.759 48.41 114.471 48.955 106.987 49.4847C93.2195 50.4592 85.3166 50.7528 83.8385 50.3451C83.3563 50.212 83.2174 49.9994 83.1588 49.3041C83.1166 48.8045 82.8715 48.2374 82.587 47.9802C82.1293 47.5671 81.6205 47.5322 76.3583 47.5555C72.1828 47.5737 69.3782 47.7237 66.0222 48.1087C60.8342 48.7034 54.0294 49.3436 52.9328 49.34C52.2056 49.3378 52.2056 49.3378 52.7515 48.9189C53.0518 48.6883 55.055 47.5788 57.2029 46.4532C62.9768 43.4268 64.6709 41.6069 63.2953 39.9087C62.4086 38.8142 59.3212 38.6483 54.1055 39.4149C46.192 40.5778 36.2607 43.3952 28.9345 46.5552C27.4685 47.1875 25.9045 47.8622 25.459 48.0544C24.7611 48.3555 24.862 48.2064 26.1862 46.9785C28.3847 44.94 29.198 44.236 33.541 40.6122C39.1421 35.9388 40.2132 35.0251 43.7476 31.908C45.4953 30.3669 47.8364 28.3424 48.9504 27.4091C50.0643 26.4757 51.6888 25.1121 52.5605 24.3788C53.4321 23.6454 54.8414 22.5 55.6922 21.8333C56.5431 21.1666 58.3429 19.7167 59.6916 18.6112C61.0403 17.5055 62.8439 16.0328 63.6998 15.3385C67.4092 12.3279 70.3883 9.07306 71.5797 6.72931C71.8037 6.28882 72.0446 5.41609 72.1151 4.78991C72.2812 3.31815 71.4733 1.70409 70.2545 1.07282C69.2139 0.53367 67.209 0.350154 65.2883 0.618518Z" fill="currentColor" />
+        </symbol>
+    </svg>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html> 

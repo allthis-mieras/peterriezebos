@@ -1,0 +1,64 @@
+@use 'node_modules/utopia-core-scss/src/utopia' as utopia;
+
+/* @link https://utopia.fyi/type/calculator?c=392,16,1.25,1536,24,1.333,10,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,2xs-s|xs-s|xs-m|s-l|m-xl&g=s,l,xl,12 */
+
+:root {
+    @include utopia.generateTypeScale(("minWidth": 392,
+            "maxWidth": 1536,
+            "minFontSize": 16,
+            "maxFontSize": 24,
+            "minTypeScale": 1.25,
+            "maxTypeScale": 1.333,
+            "positiveSteps": 10,
+            "negativeSteps": 3,
+            "prefix": "fs-",
+            "relativeTo": "viewport-width"
+        ));
+
+    @include utopia.generateSpaceScale(("minWidth": 392,
+            "maxWidth": 1.536,
+            "minSize": 16,
+            "maxSize": 24,
+            "positiveSteps": (1.5, 2, 3, 4, 6),
+            "negativeSteps": (0.75, 0.5, 0.25),
+            "customSizes": ("2xs-s", "xs-s", "xs-m", "s-l", "m-xl"),
+            "prefix": "space-",
+            "relativeTo": "viewport-width",
+        ));
+
+    /* Neutral */
+    --neutral-50: #eaeaea;
+    --neutral-100: #d0d0d0;
+    --neutral-200: #b7b7b7;
+    --neutral-300: #9d9d9d;
+    --neutral-400: #848484;
+    --neutral-500: #6a6a6a;
+    --neutral-600: #555555;
+    --neutral-700: #404040;
+    --neutral-800: #2a2a2a;
+    --neutral-900: #151515;
+    --neutral-950: #000000;
+
+    /* Black / White */
+    --bw-white: #ffffff;
+    --bw-black: #000000;
+
+    /* Elements */
+    --projects-panel: var(--neutral-800);
+
+
+    /* Grid */
+    --grid-max-width: 100%;
+    --grid-gutter: var(--space-s-l, clamp(1rem, 0.2847rem + 2.9197vw, 3rem));
+    --grid-columns: 12;
+    --site-margin: var(--grid-gutter);
+    --panel-radius: var(--space-s-l);
+
+    /* Typography */
+    --font-heading: "neue-haas-grotesk-display", Inter, Roboto, "Helvetica Neue",
+        "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+    --font-default: "neue-haas-grotesk-text", Inter, Roboto, "Helvetica Neue",
+        "Arial Nova", "Nimbus Sans", Arial, sans-serif;
+    --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+        "DejaVu Sans Mono", monospace;
+}
