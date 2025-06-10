@@ -1,16 +1,18 @@
 .contact {
     position: relative;
-    min-height: 100vh;
+    min-height: 100dvh;
     padding: var(--space-xl) 0;
     overflow: hidden;
     background-color: var(--color-white);
 
     &__container {
-        position: relative;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-xl);
-        padding: 0 var(--space-xl);
+        grid-template-columns: [full-start] minmax(var(--site-margin), 1fr) [main-start] repeat(12, 1fr) [main-end] minmax(var(--site-margin), 1fr) [full-end];
+        grid-gap: var(--grid-gutter, 2rem);
+        align-items: start;
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
     }
 
     &__column {
@@ -92,16 +94,6 @@
     background: var(--color-white);
 }
 
-.contact__container {
-    display: grid;
-    grid-template-columns: [full-start] minmax(var(--site-margin), 1fr) [main-start] repeat(12, 1fr) [main-end] minmax(var(--site-margin), 1fr) [full-end];
-    grid-gap: var(--grid-gutter, 2rem);
-    align-items: start;
-    width: 100%;
-    max-width: none;
-    margin: 0 auto;
-}
-
 .contact__item {
     background: none;
     box-shadow: none;
@@ -177,13 +169,20 @@
 
 @media (max-width: 600px) {
     .contact__container {
-        grid-template-columns: [full-start] minmax(var(--site-margin), 1fr) [main-start] 1fr [main-end] minmax(var(--site-margin), 1fr) [full-end];
+        display: grid;
+        grid-template-columns: 1fr;
+        padding-left: var(--site-margin);
+        padding-right: var(--site-margin);
+        width: 100%;
+        max-width: 100%; // of eventueel max-width: 800px voor content breedte
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .contact__item--inquiries,
     .contact__item--press,
     .contact__item--collabs {
         grid-column: main-start 1 / main-end;
-        margin-top: 0;
+        margin-top: var(--space-l);
     }
 }
