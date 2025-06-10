@@ -1,7 +1,11 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+// Enable ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
+
+// Normalize scroll for better mobile performance
+ScrollTrigger.normalizeScroll(true);
 
 export function initProjects() {
   document.querySelectorAll(".project").forEach((project) => {
@@ -76,10 +80,17 @@ export function initProjects() {
         toggleActions: "play none none reverse"
       }
     });
+  });
 
-    // Refresh ScrollTrigger on window resize
-    window.addEventListener("resize", () => {
+  // Refresh ScrollTrigger on window resize
+  window.addEventListener("resize", () => {
+    ScrollTrigger.refresh();
+  });
+
+  // Refresh ScrollTrigger after Lenis scroll
+  if (window.lenis) {
+    window.lenis.on("scrollEnd", () => {
       ScrollTrigger.refresh();
     });
-  });
+  }
 } 
