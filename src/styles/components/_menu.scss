@@ -1,0 +1,164 @@
+// Menu component styling met Utopia tokens
+@use '../base/variables' as *;
+
+.menu-bg {
+    background: var(--color-bg, var(--bw-100, #000));
+    min-height: 100vh;
+    position: relative;
+}
+
+.menu-video-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+
+.menu-video-aspect {
+    width: 100%;
+    // max-width: 1512px;
+    height: auto;
+    aspect-ratio: 16/9;
+    background: url('http://localhost:3845/assets/26a82f3e086084356d54522d59e8e193cb6e5d16.png') center/cover no-repeat;
+    margin: auto;
+}
+
+.menu-container {
+    width: 100%;
+    // max-width: 1392px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(16px, 4vw, 48px);
+    padding-right: clamp(16px, 4vw, 48px);
+    box-sizing: border-box;
+}
+
+.menu-nav {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    mix-blend-mode: difference;
+}
+
+.menu-nav__container {
+    @extend .menu-container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: clamp(24px, 6vw, 96px);
+    padding-bottom: clamp(12px, 2vw, 24px);
+}
+
+.menu-nav__logo {
+    font-family: var(--font-heading, 'Neue Haas Grotesk Display Pro'), sans-serif;
+    font-weight: var(--font-bold, 800);
+    color: var(--bw-50, #fff);
+    font-size: var(--fs-0, 24px);
+    letter-spacing: 0.08px;
+    text-align: center;
+}
+
+.menu-nav__close {
+    background: none;
+    border: none;
+    color: var(--bw-50, #fff);
+    font-family: var(--font-heading, 'Neue Haas Grotesk Display Pro'), sans-serif;
+    font-size: var(--fs-0, 24px);
+    cursor: pointer;
+    text-align: right;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(24px, 6vw, 96px);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    @extend .menu-container;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s, 24px);
+    align-items: flex-start;
+}
+
+.menu-item {
+    font-family: var(--font-heading, 'Neue Haas Grotesk Display Pro'), sans-serif;
+    font-weight: var(--font-black, 900);
+    color: var(--bw-50, #fff);
+    font-size: var(--fs-6, 134.65px);
+    letter-spacing: -1.22px;
+    text-transform: uppercase;
+    line-height: 0.8;
+}
+
+.menu-social {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs, 12px);
+    width: var(--grid-quarter, 312px);
+    justify-content: center;
+    font-family: var(--font-heading, 'Neue Haas Grotesk Display Pro'), sans-serif;
+    font-weight: var(--font-black, 900);
+    color: var(--bw-50, #fff);
+    font-size: var(--fs-0, 24px);
+    text-transform: uppercase;
+    letter-spacing: 0.72px;
+}
+
+.menu-social__item {
+    line-height: 1;
+}
+
+.menu-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs, 12px);
+    width: var(--grid-quarter, 312px);
+    justify-content: center;
+    align-items: flex-end;
+    font-family: var(--font-heading, 'Neue Haas Grotesk Display Pro'), sans-serif;
+    font-weight: var(--font-black, 900);
+    color: var(--bw-50, #fff);
+    font-size: var(--fs--2, 13.5px);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    text-align: right;
+}
+
+.menu-contact__item {
+    line-height: 1;
+}
+
+.menu-item-mask {
+    display: inline-block;
+    overflow: hidden;
+    line-height: 0.8;
+    vertical-align: bottom;
+    width: 100%;
+}
+
+// Responsive (optioneel, uit te breiden)
+@media (max-width: 1200px) {
+
+    .menu-content,
+    .menu-nav {
+        width: 100vw;
+        max-width: 100vw;
+    }
+
+    .menu-video-aspect {
+        width: 100vw;
+        max-width: 100vw;
+    }
+}
