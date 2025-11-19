@@ -14,7 +14,10 @@ export function initAbout() {
       trigger: ".about",
       start: "top bottom",
       end: "bottom top",
-      toggleActions: "play none none reverse"
+      toggleActions: "play none none reverse",
+      // FIX: markers kunnen handig zijn voor debugging op mobiel
+      // Zet markers: true aan tijdens development om te zien waar triggers zijn
+      // markers: false, // Uncomment voor debugging
     }
   });
 
@@ -27,8 +30,14 @@ export function initAbout() {
       ease: "power4.out",
       scrollTrigger: {
         trigger: moment,
+        // FIX: start: "top 90%" werkt goed op mobiel
+        // Dit triggert de animatie wanneer het element 90% van viewport hoogte bereikt
+        // Op mobiel is dit vaak beter dan "top bottom" omdat schermen kleiner zijn
         start: "top 90%",
-        toggleActions: "play none none reverse"
+        toggleActions: "play none none reverse",
+        // FIX: once: false zorgt ervoor dat animatie kan herhalen bij scroll terug
+        // Dit is standaard gedrag, maar expliciet maken voor duidelijkheid
+        // once: false, // Uncomment als je animatie maar 1x wilt afspelen
       }
     });
   });

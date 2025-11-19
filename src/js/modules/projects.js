@@ -4,8 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // Enable ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// Normalize scroll for better mobile performance
-ScrollTrigger.normalizeScroll(true);
+// FIX: normalizeScroll is verwijderd - wordt nu globaal gedaan in scroll-config.js
+// Dit voorkomt dubbele initialisatie en zorgt voor consistente configuratie
 
 export function initProjects() {
   document.querySelectorAll(".project").forEach((project) => {
@@ -35,7 +35,14 @@ export function initProjects() {
         end: () => `+=${getScrollLength()}`,
         scrub: true,
         pin: sticky,
-        invalidateOnRefresh: true
+        invalidateOnRefresh: true,
+        // FIX: anticipatePin verbetert pinning performance op mobiel
+        // Het anticipeert op pinning en berekent ruimte van tevoren
+        // Dit voorkomt "jump" effecten tijdens scroll op mobiele apparaten
+        anticipatePin: 1,
+        // FIX: pinSpacing zorgt voor correcte spacing tijdens pinning
+        // Zonder dit kan de layout "springen" omdat de gepinde element ruimte inneemt
+        pinSpacing: true,
       }
     });
 
@@ -82,12 +89,13 @@ export function initProjects() {
     });
   });
 
-  // Refresh ScrollTrigger on window resize
-  window.addEventListener("resize", () => {
-    ScrollTrigger.refresh();
-  });
+  // FIX: Resize handler verwijderd - wordt nu globaal afgehandeld in scroll-config.js
+  // Dit voorkomt meerdere resize listeners en zorgt voor debounced refresh
+  // De globale handler is geoptimaliseerd voor betere performance
 
-  // Refresh ScrollTrigger after Lenis scroll
+  // FIX: Lenis scrollEnd handler is nu overbodig
+  // Dit wordt al afgehandeld in lenis.js waar Lenis en ScrollTrigger geïntegreerd zijn
+  // We houden deze check voor backwards compatibility, maar het zou niet nodig moeten zijn
   if (window.lenis) {
     window.lenis.on("scrollEnd", () => {
       ScrollTrigger.refresh();

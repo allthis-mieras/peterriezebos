@@ -25,6 +25,12 @@ export function initHero() {
       end: "+=200%",
       scrub: true,
       pin: true,
+      // FIX: anticipatePin verbetert pinning performance op mobiel
+      // Bij hero pinning kan dit "jump" effecten voorkomen tijdens scroll
+      anticipatePin: 1,
+      // FIX: pinSpacing zorgt voor correcte spacing tijdens hero pinning
+      // Zonder dit kan de content onder de hero "springen" tijdens pinning
+      pinSpacing: true,
       onUpdate: (self) => {
         const progress = self.progress;
         if (progress >= 1) {
