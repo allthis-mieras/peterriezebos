@@ -25,16 +25,30 @@ export function initScrollConfig() {
 
   // FIX: matchMedia laat ons verschillende instellingen gebruiken voor mobiel vs desktop
   // Dit voorkomt problemen zoals pinning die niet goed werkt op kleine schermen
+  // NIEUWE SYNTAX: matchMedia verwacht nu functies die een object met 'add' en 'remove' retourneren
+  // Dit is de nieuwe API sinds GSAP 3.12+ en vervangt de oude directe functie syntax
   ScrollTrigger.matchMedia({
     // Mobiele instellingen (schermen kleiner dan 768px)
-    "(max-width: 768px)": function() {
-      // Hier kunnen we specifieke mobiele aanpassingen doen indien nodig
-      // Bijvoorbeeld: bepaalde pinning uitschakelen of andere start/end punten gebruiken
-    },
+    "(max-width: 768px)": () => ({
+      add: () => {
+        // Hier kunnen we specifieke mobiele aanpassingen doen indien nodig
+        // Bijvoorbeeld: bepaalde pinning uitschakelen of andere start/end punten gebruiken
+        // Deze functie wordt aangeroepen wanneer de media query matcht
+      },
+      remove: () => {
+        // Cleanup functie (optioneel) - wordt aangeroepen wanneer media query niet meer matcht
+      }
+    }),
     // Desktop instellingen (schermen groter dan 768px)
-    "(min-width: 769px)": function() {
-      // Desktop specifieke instellingen kunnen hier
-    },
+    "(min-width: 769px)": () => ({
+      add: () => {
+        // Desktop specifieke instellingen kunnen hier
+        // Deze functie wordt aangeroepen wanneer de media query matcht
+      },
+      remove: () => {
+        // Cleanup functie (optioneel) - wordt aangeroepen wanneer media query niet meer matcht
+      }
+    }),
   });
 
   // FIX: Debounced resize handler voorkomt performance problemen
